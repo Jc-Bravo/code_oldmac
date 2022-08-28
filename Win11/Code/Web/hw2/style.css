@@ -1,0 +1,15 @@
+h1,h2,h3{
+    text-align: center;
+}
+
+.try {
+    color: white;
+    border-color: blue;
+    background-color: red;
+}
+
+.try1 {
+    color: black;
+    border-color: pink;
+    background-color: wheat;
+}

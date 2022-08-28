@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="JC">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+
+        <title>Create deeplearning Page</title>
+
+        {% load static %}
+
+         <!-- Bootstrap core CSS -->
+        <link rel="stylesheet" type="text/css" href="{% static 'deeplearning/home.css' %}">
+            <!-- Additional CSS Files -->
+        
+        <link rel="stylesheet" type="text/css" href="{% static 'deeplearning/fontawesome.css' %} ">
+        <link rel="stylesheet" href="{% static 'deeplearning/templatemo-liberty-market.css' %}">
+        <link rel="stylesheet" href="{% static 'deeplearning/owl.css' %}">
+        <link rel="stylesheet" href="{% static 'deeplearning/animate.css' %}">
+        <link rel="stylesheet" href="{% static 'deeplearning/swiper-bundle.min.css' %}"/>
+        <!-- <link rel="stylesheet" href="{% static 'deeplearning/results.css' %} "> -->
+
+    </head>
+    <body>
+        <h1 id="training">训练中</h1>
+        {% csrf_token %}
+        {% for project in project_list %}
+        {% if not project.train_status %}
+            <div class="project{{ forloop.counter }}">
+                <div>
+                    <a href="{% url 'deeplearning:detail' project.id %}">ID: {{project.model_name}}</a>
+                </div>
+                <div><label>ID: </label><p>{{ project.sponsor_name }}</p></div>
+                <div><label>TIME: </label><p>{{ project.sponsor_time }}</p></div>
+                </br>
+            </div>
+            <div class="cutoff"></div>
+        {% endif %}
+        {% endfor %}
+        <h1 id="trained">已完成</h1>
+        {% csrf_token %}
+        {% for project in project_list %}
+        {% if project.train_status %}
+            <div class="project{{ forloop.counter }}">
+                <div><a href="{% url 'deeplearning:detail' project.id %}">{{project.model_name}}</a></div>
+                <div><label>ID</label><p>{{project.sponsor_name}}</p></div>
+                <div><label>TIME:</label><p>{{project.sponsor_time}}</p></div>
+                </br>
+            </div>
+            <div class="cutoff"></div>
+        {% endif %}
+        {% endfor %}
+        
+        <footer>
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-12">
+                  <p>
+                  Copyright &copy; 2022.Company name All rights reserved.</p>
+                </div>
+              </div>
+            </div>
+          </footer>
+        <script type="text/javascript" src="{% static 'deeplearning/results.js' %}"></script>
+    </body>
+</html>

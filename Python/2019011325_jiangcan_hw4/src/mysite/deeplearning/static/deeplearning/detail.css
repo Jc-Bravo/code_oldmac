@@ -1,0 +1,18 @@
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+body{
+    background-color: #1e1e1e;
+    color: #888888;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+#console{
+    display: flex;
+}
+#footsteps{
+    border-top: #888888 2px solid;
+    border-left: #888888 2px solid;
+    border-right: #888888 2px solid;
+}

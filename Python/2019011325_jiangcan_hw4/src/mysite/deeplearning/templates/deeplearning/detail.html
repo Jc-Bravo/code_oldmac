@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        {% load static %}
+        <!-- <link rel="stylesheet" type="text/css" href="{% static 'deeplearning/detail.css' %}"> -->
+    </head>
+    <body>
+        {% csrf_token %}
+        <h1>项目名称：<p>{{ train_project.model_name }}</p></h1>
+        <div><h2>ID: </h2><p>{{ train_project.sponsor_name }}</p></div>
+        <div><h2>Time: </h2><p>{{ train_project.sponsor_time }}</p></div>
+        <div><h2>运行时长：</h2><p>{{ train_project.train_duration }}s</p></div>
+        {% if train_project.train_status %}
+        <div><h2>完成时间：</h2><p>{{ train_completed }}</p></div>
+        {% endif %}
+        {% if train_project.train_status %}
+        <div><h2>项目状态：</h2><p>已完成</p></div>
+        {% else %}
+        <div><h2>项目状态：</h2><p>进行中</p></div>
+        {% endif %}
+        <!-- {% if not train_project.train_status %} -->
+        <div><h2>日志（loss/eporch）：</h2></div>
+        <div id="console">
+            {% for data in train_console %}
+            <p class="footsteps">{{ data }}>></p>
+            {% endfor %}
+        </div>
+        <!-- {% endif %} -->
+        <script type="text/javascript" src="{% static 'deeplearning/detail.js' %}"></script>
+    </body>
+</html>

@@ -1,0 +1,1 @@
+<!DOCTYPEhtml><html><head><metacharset="utf-8"></head><body><h1>Question List</h1>    {% if question_list %}<ul>        {% for question in question_list %}<li><ahref="detail/{{ question.id }}"> {{ question.question_text }} </a></l        {% endfor %}</ul>    {% else %}<p>No question to vote.</p>    {% endif %}</body></html>

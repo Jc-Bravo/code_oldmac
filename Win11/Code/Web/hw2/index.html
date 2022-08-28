@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewprot" content="width=device, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <title>Hello JC! Hello world!</title>
+    </head>
+    <body>
+        <div id="app">
+            <img :class="a" v-bind:src="picture" v-bind:alt="firstName" />
+            <h1>So this is open in a browser_-- </h1>
+            <h3>{{firstName}}</h3>
+            <button v-on:click="getUser()" :class="a">push it</button>
+        </div>
+        <script src="https://unpkg.com/vue@next"></script>
+        <!-- Use CDN in a not to much porject -->
+        <script src="app.js"></script>
+    </body>
+</html>
